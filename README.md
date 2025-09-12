@@ -1,17 +1,17 @@
 # Structure-Preserving High-Order Methods for the Compressible Euler Equations in Potential Temperature Formulation for Atmospheric Flows
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15861045.svg)](https://zenodo.org/doi/10.5281/zenodo.17106782)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17106781.svg)](https://zenodo.org/doi/10.5281/zenodo.17106781)
 
 This repository contains information and code to reproduce the results presented in the article
 
 ```bibtex
 @online{artiano2025structure,
   title={Structure-Preserving High-Order Methods for the
-            Compressible Euler Equations in Potential Temperature 
-            Formulation for Atmospheric Flows},
+         Compressible {E}uler Equations in Potential Temperature 
+         Formulation for Atmospheric Flows},
   author={Artiano, Marco and Knoth, Oswald and Spichtinger, Peter 
-            and Ranocha, Hendrik},
+          and Ranocha, Hendrik},
   year={2025},
   month={09},
   eprint={TODO},
@@ -26,13 +26,13 @@ If you find these results useful, please cite the article mentioned above. If yo
 @misc{artiano2025structureRepo,
   title={Reproducibility repository for
          "{S}tructure-Preserving High-Order Methods for the
-            Compressible Euler Equations in Potential Temperature 
-            Formulation for Atmospheric Flows"},
+         Compressible {E}uler Equations in Potential Temperature 
+         Formulation for Atmospheric Flows"},
   author={Artiano, Marco and Knoth, Oswald and Spichtinger, Peter 
             and Ranocha, Hendrik},
   year={2025},
-  howpublished={\url{TODO}},
-  doi={TODO}
+  howpublished={\url{https://github.com/MarcoArtiano/2025_structure_potential_temperature}},
+  doi={10.5281/zenodo.17106781}
 }
 ```
 
