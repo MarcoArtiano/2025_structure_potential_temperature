@@ -1,0 +1,14 @@
+name = "PotentialTemperature"
+uuid = "c7d9ca30-ac8e-45dd-b104-24f88584f0f7"
+authors = ["Marco Artiano <artianomarco97@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+MuladdMacro = "46d2c3a1-f734-5fdb-9937-b9b9aeba4221"
+Trixi = "a7f1ee26-1774-49b1-8366-f1abc58fbfcb"
+
+[compat]
+LaTeXStrings = "1.4.0"
+MuladdMacro = "0.2.4"
+Trixi = "0.13.1"

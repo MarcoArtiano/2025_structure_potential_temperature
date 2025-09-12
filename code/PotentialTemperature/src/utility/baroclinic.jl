@@ -1,0 +1,120 @@
+# Unperturbed balanced steady-state.
+# Returns primitive variables with only the velocity in longitudinal direction (rho, u, p).
+# The other velocity components are zero.
+function basic_state_baroclinic_instability_longitudinal_velocity(lon, lat, z)
+    # Parameters from Table 1 in the paper
+    # Corresponding names in the paper are commented
+    radius_earth = 6.371229e6  # a
+    half_width_parameter = 2           # b
+    gravitational_acceleration = 9.81     # g
+    k = 3           # k
+    surface_pressure = 1e5         # p₀
+    gas_constant = 287         # R
+    surface_equatorial_temperature = 310.0       # T₀ᴱ
+    surface_polar_temperature = 240.0       # T₀ᴾ
+    lapse_rate = 0.005       # Γ
+    angular_velocity = 7.29212e-5  # Ω
+
+    # Distance to the center of the Earth
+    r = z + radius_earth
+
+    # In the paper: T₀
+    temperature0 = 0.5 * (surface_equatorial_temperature + surface_polar_temperature)
+    # In the paper: A, B, C, H
+    const_a = 1 / lapse_rate
+    const_b = (temperature0 - surface_polar_temperature) /
+              (temperature0 * surface_polar_temperature)
+    const_c = 0.5 * (k + 2) * (surface_equatorial_temperature - surface_polar_temperature) /
+              (surface_equatorial_temperature * surface_polar_temperature)
+    const_h = gas_constant * temperature0 / gravitational_acceleration
+
+    # In the paper: (r - a) / bH
+    scaled_z = z / (half_width_parameter * const_h)
+
+    # Temporary variables
+    temp1 = exp(lapse_rate / temperature0 * z)
+    temp2 = exp(-scaled_z^2)
+
+    # In the paper: ̃τ₁, ̃τ₂
+    tau1 = const_a * lapse_rate / temperature0 * temp1 +
+           const_b * (1 - 2 * scaled_z^2) * temp2
+    tau2 = const_c * (1 - 2 * scaled_z^2) * temp2
+
+    # In the paper: ∫τ₁(r') dr', ∫τ₂(r') dr'
+    inttau1 = const_a * (temp1 - 1) + const_b * z * temp2
+    inttau2 = const_c * z * temp2
+
+    # Temporary variables
+    temp3 = r / radius_earth * cos(lat)
+    temp4 = temp3^k - k / (k + 2) * temp3^(k + 2)
+
+    # In the paper: T
+    temperature = 1 / ((r / radius_earth)^2 * (tau1 - tau2 * temp4))
+
+    # In the paper: U, u (zonal wind, first component of spherical velocity)
+    big_u = gravitational_acceleration / radius_earth * k * temperature * inttau2 *
+            (temp3^(k - 1) - temp3^(k + 1))
+    temp5 = radius_earth * cos(lat)
+    u = -angular_velocity * temp5 + sqrt(angular_velocity^2 * temp5^2 + temp5 * big_u)
+
+    # Hydrostatic pressure
+    p = surface_pressure *
+        exp(-gravitational_acceleration / gas_constant * (inttau1 - inttau2 * temp4))
+
+    # Density (via ideal gas law)
+    rho = p / (gas_constant * temperature)
+
+    return rho, u, p
+end
+
+# Perturbation as in Equations 25 and 26 of the paper (analytical derivative)
+function perturbation_stream_function(lon, lat, z)
+    # Parameters from Table 1 in the paper
+    # Corresponding names in the paper are commented
+    perturbation_radius = 1 / 6      # d₀ / a
+    perturbed_wind_amplitude = 1.0      # Vₚ
+    perturbation_lon = pi / 9     # Longitude of perturbation location
+    perturbation_lat = 2 * pi / 9 # Latitude of perturbation location
+    pertz = 15000    # Perturbation height cap
+
+    # Great circle distance (d in the paper) divided by a (radius of the Earth)
+    # because we never actually need d without dividing by a
+    great_circle_distance_by_a = acos(sin(perturbation_lat) * sin(lat) +
+                                      cos(perturbation_lat) * cos(lat) *
+                                      cos(lon - perturbation_lon))
+
+    # In the first case, the vertical taper function is per definition zero.
+    # In the second case, the stream function is per definition zero.
+    if z > pertz || great_circle_distance_by_a > perturbation_radius
+        return 0.0, 0.0
+    end
+
+    # Vertical tapering of stream function
+    perttaper = 1.0 - 3 * z^2 / pertz^2 + 2 * z^3 / pertz^3
+
+    # sin/cos(pi * d / (2 * d_0)) in the paper
+    sin_, cos_ = sincos(0.5 * pi * great_circle_distance_by_a / perturbation_radius)
+
+    # Common factor for both u and v
+    factor = 16 / (3 * sqrt(3)) * perturbed_wind_amplitude * perttaper * cos_^3 * sin_
+
+    u_perturbation = -factor * (-sin(perturbation_lat) * cos(lat) +
+                      cos(perturbation_lat) * sin(lat) * cos(lon - perturbation_lon)) /
+                     sin(great_circle_distance_by_a)
+
+    v_perturbation = factor * cos(perturbation_lat) * sin(lon - perturbation_lon) /
+                     sin(great_circle_distance_by_a)
+
+    return u_perturbation, v_perturbation
+end
+
+function cartesian_to_sphere(x)
+    r = norm(x)
+    lambda = atan(x[2], x[1])
+    if lambda < 0
+        lambda += 2 * pi
+    end
+    phi = asin(x[3] / r)
+
+    return lambda, phi, r
+end
