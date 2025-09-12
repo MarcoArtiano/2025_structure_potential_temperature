@@ -49,7 +49,7 @@ to create the figures shown in the paper.
 Run the following command to reproduce the results about inertia gravity waves
 ```julia
 julia> include("test_cases/gravitywaves/inertia_gravity_waves.jl")
-```
+
 julia> include("test_cases/gravitywaves/convergence_analysis.jl")
 ```
 and
@@ -60,8 +60,6 @@ to create the figures shown in the paper.
 
 ## Test case 4: Linear hydrostatic mountain
 Run the following command to reproduce the results about linear hydrostatic mountain
-```julia
-julia> include("test_cases/linearhydrostatic/run_cases.jl")
 ```julia
 julia> include("test_cases/linearhydrostatic/run_cases.jl")
 ```
