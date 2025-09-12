@@ -3,7 +3,7 @@ The test cases have been run with Julia v1.11.6. It is strongly recommended to s
 ```bash
 julia --project=. --threads=num
 ```
-where `num` is the number of threads that you want to use for that session.
+where `num` is the number of threads that you want to use for that session. Alternatively, you can also set `--threads=auto` to use a reasonable default number of threads for your system.
 
 The equations are defined inside the folder `PotentialTemperature/`,  as long as other utilities function.
 
@@ -20,7 +20,7 @@ Run the following command to reproduce the results about 1D density wave test ca
 ```julia
 julia> include("test_cases/conservation/density_wave.jl")
 ```
-Run the following command to reproduce the results about 3D Taylor-Green Vortex test case
+Run the following command to reproduce the results about 3D Taylor-Green vortex test case
 ```julia
 julia> include("test_cases/conservation/tgv.jl")
 ```
