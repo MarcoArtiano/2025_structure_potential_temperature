@@ -24,7 +24,7 @@ Run the following command to reproduce the results about 3D Taylor-Green vortex 
 ```julia
 julia> include("test_cases/conservation/tgv.jl")
 ```
-Run the following command to create the
+Run the following command to create the plots shown in the paper
 ```julia
 julia> include("test_cases/conservation/post_process.jl")
 ```
