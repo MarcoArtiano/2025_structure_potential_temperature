@@ -1,0 +1,29 @@
+{
+    "license": "MIT",
+    "title": "Reproducibility repository for ",
+    "upload_type": "software",
+    "creators": [
+        {
+            "affiliation": "Institute of Mathematics, Johannes Gutenberg University Mainz, Germany",
+            "name": "Artiano, Marco",
+            "orcid": "0009-0009-5872-702X"
+        },
+        {
+            "affiliation": "Leibniz Institute for Troposheric Research (TROPOS), Leipzig, Germany",
+            "name": "Knoth, Oswald",
+            "orcid": ""
+        },
+        {
+            "affiliation": "Institute for Atmospheric Physics, Johannes Gutenberg University Mainz, Germany",
+            "name": "Spichtinger, Peter",
+            "orcid": "0000-0003-4008-4977"
+        },
+
+        {
+            "affiliation": "Institute of Mathematics, Johannes Gutenberg University Mainz, Germany",
+            "name": "Ranocha, Hendrik",
+            "orcid": "0000-0002-3456-2277"
+        }
+    ],
+    "access_right": "open"
+}
