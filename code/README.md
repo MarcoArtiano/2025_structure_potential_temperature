@@ -7,7 +7,12 @@ where `num` is the number of threads that you want to use for that session.
 
 The equations are defined inside the folder `PotentialTemperature/`,  as long as other utilities function.
 
-Before running the simulations, please activate the project and instantiate.
+Before running the simulations, please activate the project and instantiate, i.e., start Julia as described above and run the following code in the Julia REPL:
+```julia
+julia> using Pkg
+julia> Pkg.activate(".")
+julia> Pkg.instantiate()
+```
 
 ## Test case 1: Conservation of total energy and physical entropy
 
