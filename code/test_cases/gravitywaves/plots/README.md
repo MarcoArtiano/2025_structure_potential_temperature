@@ -1,0 +1,1 @@
+In this folder the figures for the inertia gravity waves test case will be saved.

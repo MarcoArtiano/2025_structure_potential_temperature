@@ -1,0 +1,1 @@
+In this folder the figures for the density wave and Taylor-Green Vortex test case will be saved.

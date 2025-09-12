@@ -1,0 +1,1 @@
+In this folder the figures for the well-balancedness test case will be saved.

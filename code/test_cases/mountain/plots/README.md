@@ -1,0 +1,1 @@
+In this folder the figures for the Schär mountain test case will be saved.

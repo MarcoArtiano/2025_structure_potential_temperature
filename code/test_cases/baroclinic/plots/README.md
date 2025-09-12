@@ -1,0 +1,1 @@
+In this folder the figures for the baroclinic instability test case will be saved.
