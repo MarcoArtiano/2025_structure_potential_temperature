@@ -1,5 +1,5 @@
 # Numerical experiments
-The test cases have been run with Julia v1.11.6. It is strongly recommended to start julia with multiple threads, as some simiulations take hours to be completed. To do that, start julia with the following command:
+The test cases have been run with Julia v1.11.6. It is strongly recommended to start julia with multiple threads, as some simulations take hours to be completed. To do that, start julia with the following command:
 ```bash
 julia --project=. --threads=num
 ```
