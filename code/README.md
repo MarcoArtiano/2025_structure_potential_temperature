@@ -5,7 +5,7 @@ julia --project=. --threads=num
 ```
 where `num` is the number of threads that you want to use for that session. Alternatively, you can also set `--threads=auto` to use a reasonable default number of threads for your system.
 
-The equations are defined inside the folder `PotentialTemperature/`,  as long as other utilities function.
+The equations are defined inside the folder `PotentialTemperature/`,  as well as other utility functions.
 
 Before running the simulations, please activate the project and instantiate, i.e., start Julia as described above and run the following code in the Julia REPL:
 ```julia
