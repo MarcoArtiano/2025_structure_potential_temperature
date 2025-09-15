@@ -14,9 +14,9 @@ This repository contains information and code to reproduce the results presented
           and Ranocha, Hendrik},
   year={2025},
   month={09},
-  eprint={TODO},
+  eprint={2509.10311},
   eprinttype={arxiv},
-  eprintclass={TODO}
+  eprintclass={math.NA}
 }
 ```
 
