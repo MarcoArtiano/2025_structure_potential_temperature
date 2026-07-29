@@ -6,14 +6,18 @@
 This repository contains information and code to reproduce the results presented in the article
 
 ```bibtex
-@online{artiano2025structure,
+@article{artiano2026structure,
   title={Structure-Preserving High-Order Methods for the
-         Compressible {E}uler Equations in Potential Temperature 
+         Compressible {E}uler Equations in Potential Temperature
          Formulation for Atmospheric Flows},
-  author={Artiano, Marco and Knoth, Oswald and Spichtinger, Peter 
+  author={Artiano, Marco and Knoth, Oswald and Spichtinger, Peter
           and Ranocha, Hendrik},
-  year={2025},
-  month={09},
+  journal={Journal of Computational Physics},
+  volume={566},
+  year={2026},
+  month={07},
+  pages={115221},
+  doi={10.1016/j.jcp.2026.115221},
   eprint={2509.10311},
   eprinttype={arxiv},
   eprintclass={math.NA}
